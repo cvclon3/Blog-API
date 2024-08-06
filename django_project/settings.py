@@ -51,6 +51,8 @@ INSTALLED_APPS = [
     # dj-rest
     'dj_rest_auth',
     'dj_rest_auth.registration',
+    # openapi schema
+    'drf_spectacular',
 
     # Local
     'accounts.apps.AccountsConfig',
@@ -65,7 +67,15 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.TokenAuthentication',
-    ]
+    ],
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Blog-API',
+    'DESCRIPTION': 'Simple training Blog-API project',
+    'VERSION': '1.0.0',
 }
 
 
